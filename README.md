@@ -1,3 +1,2 @@
 # ITCS333
-project
- - Ali Branch?
+- This is my branch :)
