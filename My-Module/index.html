@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Listing Page</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Boldonse&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="navbar">
+    <div class="navbar-container">
+        <a id="title" href="#">Campus Hub</a>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- search bar -->
+<div class="search-container">
+    <input type="text" placeholder="Search for items...">
+    <button>Search</button>
+</div>
+
+<!-- Filtering --> 
+<div class="sort-container">
+    <label for="sort">Sort by:</label>
+    <select id="sort">
+        <option value="popularity">Popularity</option>
+        <option value="newest">Newest</option>
+        <option value="price-asc">Price (Low to High)</option>
+        <option value="price-desc">Price (High to Low)</option>
+    </select>
+</div>
+</body>
+</html>
