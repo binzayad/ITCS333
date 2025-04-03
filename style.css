@@ -1,10 +1,38 @@
+body {
+	background-color: rgb(255, 255, 255);
+	font-family: cursive;
+}
+
 nav {
 	margin: 20px;
 }
 
+button {
+	border: none;
+	border-radius: 5px;
+}
+
+textarea {
+	font-size: 20px;
+	border-radius: 10px;
+}
+
+input {
+	width: 300px;
+	height: 40px;
+	border-radius: 8px;
+	font-size: 20px
+}
+
 #log {
 	padding: 10px 32px;
-	margin-left: 800px;
+	margin-left: 870px;
+	background-color: rgb(36, 219, 141);
+}
+
+#sgn {
+	background-color: #d184a7;
+	padding: 10px 32px;
 }
 
 #log:hover {
@@ -15,22 +43,8 @@ nav {
 	background-color: rgb(255, 128, 255);
 }
 
-#log {
-	background-color: rgb(36, 219, 141);
-}
-
-#sgn {
-	background-color: #d184a7;
-	padding: 10px 32px;
-}
-
 #log:active, #sgn:active {
 	background-color: silver;
-}
-
-button {
-	border: none;
-	border-radius: 5px;
 }
 
 #searchbtn, .sort, #publish {
@@ -98,15 +112,6 @@ button {
 	white-space: nowrap;
 }
 
-body {
-	background-color: rgb(255, 255, 255);
-	font-family: cursive;
-}
-
-button {
-	font-family: cursive;
-}
-
 #firstPage:hover, #lastPage:hover, .page:hover {
 	background-color: grey;
 }
@@ -123,20 +128,29 @@ button {
 	font-weight: 900;
 }
 
-textarea {
-	font-size: 20px;
+#currentPage {
+	background-color: #4e45ba;
+}
+
+#currentPage:hover {
+	background-color: rgb(165, 150, 233);
+}
+
+#comments {
 	border-radius: 10px;
-}
-
-input {
-	width: 300px;
-	height: 40px;
-	border-radius: 8px;
-	font-size: 20px
-}
-
-#page1 {
-	background-color: fuchsia;
+	border-color: silver;
+	background-color: silver;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	box-sizing: border-box;
+	word-wrap: break-word;
+	white-space: normal;
+	width: 100%;
+	overflow-wrap: break-word;
+	display: block;
+	word-wrap: break-word;
 }
 
 .del {

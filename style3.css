@@ -18,8 +18,13 @@ main {
 }
 
 label {
-	word-wrap: break-word; display : block;
+	display: block;
+	word-wrap: break-word;
 	white-space: normal;
+	white-space: normal;
+	width: 100%;
+	overflow-wrap: break-word;
+	display: block;
 	width: 100%;
 	overflow-wrap: break-word;
 	display: block;

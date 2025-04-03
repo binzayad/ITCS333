@@ -13,9 +13,7 @@
 		<button id="sgn">Sign-up</button>
 	</nav>
 	<hr>
-
 	<button id=navigate>↑</button>
-
 	<main>
 		<h1>Notes</h1>
 		<input id="search" type="search">
@@ -76,8 +74,9 @@
 			</div>
 		</div>
 		<div id="page">
-			<a id=firstPage> |← </a> <a class="page"> ← </a> <a class="page"
-				id=page1> 1 </a> <a class="page"> → </a> <a id=lastPage> →| </a>
+			<a id=firstPage> |← </a> <a class="page" id=prevPage> ← </a> <a
+				class="page" id=currentPage> 1 </a> <a class="page" id=nextPage> → </a> <a
+				id=lastPage> →| </a>
 		</div>
 
 		<hr>
@@ -90,9 +89,8 @@
 
 		<hr>
 
-		<p>Add Comment</p>
-		<div id=comments></div>
-
+		<div></div>
+		<label>Add a Comment</label>
 		<div>
 			<textarea rows="4" cols="40"></textarea>
 		</div>
@@ -100,8 +98,12 @@
 		<div>
 			<p>Comments:</p>
 			<hr>
-			<div>
-				<p></p>
+			<div id=comments>
+				<p>Anon:</p>
+				<p>jkk</p>
+				<hr>
+				<p>Anon:</p>
+				<p>jksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkj</p>
 			</div>
 		</div>
 	</main>
@@ -110,7 +112,7 @@
 
 	<footer>
 		<p>
-			<small>UOB <time>2025</time></small>
+			<small>UOB, <time>2025</time></small>
 		</p>
 	</footer>
 
