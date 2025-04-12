@@ -21,18 +21,22 @@ input {
 	width: 300px;
 	height: 40px;
 	border-radius: 8px;
-	font-size: 20px
+	font-size: 20px;
+}
+
+nav button {
+	float: right;
 }
 
 #log {
 	padding: 10px 32px;
-	margin-left: 870px;
 	background-color: rgb(36, 219, 141);
 }
 
 #sgn {
 	background-color: #d184a7;
 	padding: 10px 32px;
+	margin-right: 10px;
 }
 
 #log:hover {
@@ -54,7 +58,7 @@ input {
 }
 
 #searchbtn:hover, .sort:hover, #publish:hover, #navigate:hover {
-	background-color: grey
+	background-color: grey;
 }
 
 .sort {
@@ -102,6 +106,11 @@ input {
 	max-height: 150px;
 	max-width: 300px;
 	overflow: hidden;
+}
+
+#navigate:active {
+	background-color: rgb(0, 255, 255);
+	color: black;
 }
 
 .maxhw {
@@ -163,19 +172,11 @@ input {
 
 .det, .del, .edit {
 	padding: 5px;
-	margin-top: 5px
-}
-
-.det:active {
-	background-color: gray;
-}
-
-.edit:active {
-	background-color: rgb(128, 128, 255)
+	margin-top: 5px;
 }
 
 .det:hover {
-	background-color: rgb(64, 128, 128)
+	background-color: rgb(64, 128, 128);
 }
 
 .edit:hover {
@@ -183,7 +184,15 @@ input {
 }
 
 .del:hover {
-	background-color: rgb(128, 0, 0)
+	background-color: rgb(128, 0, 0);
+}
+
+.det:active {
+	background-color: gray;
+}
+
+.edit:active {
+	background-color: rgb(128, 128, 255);
 }
 
 .del:active {
