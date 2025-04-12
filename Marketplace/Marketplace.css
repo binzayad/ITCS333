@@ -1,0 +1,21 @@
+.Item_Img{
+    width: 100px;
+    object-fit:scale-down;
+    align-self: center;
+}
+
+.Item p{
+    vertical-align:middle;
+    align-self: center;
+}
+
+.Item{
+    display: flex;
+    flex-direction: column;
+}
+
+.Item_List{
+    display: grid;
+    grid-template-columns:repeat(auto-fit,150px)
+
+}
