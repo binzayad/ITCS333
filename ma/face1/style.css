@@ -1,0 +1,215 @@
+body {
+	background-color: rgb(255, 255, 255);
+	font-family: cursive;
+}
+
+nav {
+	margin: 20px;
+}
+
+button {
+	border: none;
+	border-radius: 5px;
+}
+
+textarea {
+	font-size: 20px;
+	border-radius: 10px;
+}
+
+input {
+	width: 300px;
+	height: 40px;
+	border-radius: 8px;
+	font-size: 20px;
+}
+
+nav button {
+	float: right;
+}
+
+#log {
+	padding: 10px 32px;
+	background-color: rgb(36, 219, 141);
+}
+
+#sgn {
+	background-color: #d184a7;
+	padding: 10px 32px;
+	margin-right: 10px;
+}
+
+#log:hover {
+	background-color: rgb(128, 255, 128);
+}
+
+#sgn:hover {
+	background-color: rgb(255, 128, 255);
+}
+
+#log:active, #sgn:active {
+	background-color: silver;
+}
+
+#searchbtn, .sort, #publish {
+	height: 40px;
+	width: 70px;
+	background-color: silver;
+}
+
+#searchbtn:hover, .sort:hover, #publish:hover, #navigate:hover {
+	background-color: grey;
+}
+
+.sort {
+	margin-left: 5px;
+	margin-top: 10px;
+}
+
+#ss {
+	margin: 10px;
+}
+
+#publish, #searchbtn, .sort {
+	font-size: 16px;
+}
+
+#publish:active, #searchbtn:active, .sort:active {
+	background-color: aqua;
+}
+
+#navigate {
+	position: fixed;
+	padding-bottom: 15px;
+	width: 50px;
+	border-radius: 8px;
+	margin-left: 1250px;
+	margin-top: 430px;
+	margin-bottom: 300px;
+	font-size: 35px;
+	background-color: black;
+	color: white;
+}
+
+.notes {
+	display: inline-block;
+	border-radius: 10px;
+	background-color: #d5b8db;
+	margin: 15px;
+	box-sizing: border-box;
+	overflow: hidden;
+	background-image: linear-gradient(45deg, #f0f0f0 0%, transparent 45%);
+	background-position: 0 0;
+	background-repeat: repeat;
+	height: 150px;
+	width: 299px;
+	max-height: 150px;
+	max-width: 300px;
+	overflow: hidden;
+}
+
+#navigate:active {
+	background-color: rgb(0, 255, 255);
+	color: black;
+}
+
+.maxhw {
+	display: block;
+	overflow: hidden;
+	width: 100%;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+#firstPage:hover, #lastPage:hover, .page:hover {
+	background-color: grey;
+}
+
+#page {
+	text-align: center;
+}
+
+.page, #lastPage, #firstPage {
+	border-radius: 5px;
+	text-align: center;
+	padding: 9px 15px;
+	display: inline-table;
+	font-weight: 900;
+}
+
+#currentPage {
+	background-color: #4e45ba;
+}
+
+#currentPage:hover {
+	background-color: rgb(165, 150, 233);
+}
+
+#comments {
+	border-radius: 10px;
+	border-color: silver;
+	background-color: silver;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	box-sizing: border-box;
+	word-wrap: break-word;
+	white-space: normal;
+	width: 100%;
+	overflow-wrap: break-word;
+	display: block;
+	word-wrap: break-word;
+}
+
+.del {
+	background-color: red;
+}
+
+.edit {
+	background: rgb(0, 255, 255);
+}
+
+.det, .del, .edit {
+	padding: 5px;
+	margin-top: 5px;
+}
+
+.det:hover {
+	background-color: rgb(64, 128, 128);
+}
+
+.edit:hover {
+	background-color: rgb(0, 0, 160);
+}
+
+.del:hover {
+	background-color: rgb(128, 0, 0);
+}
+
+.det:active {
+	background-color: gray;
+}
+
+.edit:active {
+	background-color: rgb(128, 128, 255);
+}
+
+.del:active {
+	background-color: rgb(0, 0, 0);
+	color: white;
+}
+
+.link {
+	text-decoration: none;
+	color: rgb(64, 0, 128);
+}
+
+.link:visited {
+	color: red;
+}
+
+.link:hover {
+	text-decoration: underline;
+	color: rgb(64, 0, 128);
+}
