@@ -8,7 +8,7 @@ body, h1, h2, h3, p {
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    background: linear-gradient(to right, #6a11cb, #2575fc); 
+    background: linear-gradient(to right, #213f72, #4272a6); 
     color: #fff; 
 }
 
@@ -59,13 +59,14 @@ textarea:focus {
 }
 
 button {
-    background: #E94E77; 
+    background: #FF0000; 
     color: #fff;
     border: none;
     padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s;
+    font-size: 1.2em;
 }
 
 button:hover {
@@ -74,12 +75,21 @@ button:hover {
 
 article {
     margin-bottom: 15px;
-    border-left: 5px solid #6a11cb; 
+    border-left: 5px solid #efe163; 
     padding-left: 10px;
 }
 
+.news-title {
+    border: 2px solid black;
+    background-color: #FF0000;
+    padding: 5px 10px;
+    font-weight: bold;
+    color: white;
+    display: inline-block;
+}
+
 h2 {
-    font-size: 1.5em;
+    font-size: 1.2em;
     margin-bottom: 10px;
     color: #333;
 }
