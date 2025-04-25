@@ -92,7 +92,7 @@ nav button {
 }
 
 .notes {
-	display: inline-block;
+	display: block;
 	border-radius: 10px;
 	background-color: #d5b8db;
 	margin: 15px;
@@ -101,11 +101,7 @@ nav button {
 	background-image: linear-gradient(45deg, #f0f0f0 0%, transparent 45%);
 	background-position: 0 0;
 	background-repeat: repeat;
-	height: 150px;
-	width: 299px;
-	max-height: 150px;
-	max-width: 300px;
-	overflow: hidden;
+	
 }
 
 #navigate:active {
@@ -145,7 +141,7 @@ nav button {
 	background-color: rgb(165, 150, 233);
 }
 
-#comments {
+#commentSection {
 	border-radius: 10px;
 	border-color: silver;
 	background-color: silver;

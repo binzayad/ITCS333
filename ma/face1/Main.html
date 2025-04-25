@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <title>Course Note Module</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet"
+	href="style.css">
 </head>
 <body>
 	<nav id=nav>
@@ -18,59 +19,28 @@
 		<h1>Notes</h1>
 		<input id="search" type="search">
 		<button type="submit" id=searchbtn>Search</button>
+		<button class=sort>A->Z</button>
+		<button class=sort>Z->A</button>
 		<hr>
-		<div id=ss>
-			<button class=sort>A->Z</button>
-			<button class=sort>Z->A</button>
-		</div>
 
-		<div>
-			<div class=notes id=note0>
+		<div id=notes>
+			<div class=notes>
 				<figure>
-					<h4>ITCS333 MIDTERM</h4>
-					<a class=maxhw>MID will be on <time> 20-06-2014 </time></a>
-					<figcaption></figcaption>
-					<a href=MoreDetalsPage.html target=_blank><button class=det>More
-							details</button></a>
-					<a href="EditItemPage.html" target="_blank"><button class=edit>Edit</button></a>
-					<button class=del>Delete</button>
+					<h4 class=maxhw></h4>
+					<a class=maxhw></a>
 				</figure>
 			</div>
-			<div class=notes id=note1>
-				<figure>
-					<h4>ITCS240 MIDTERM</h4>
-					<a class=maxhw> MID will be on <time>23-06-2014</time>
-					</a>
-					<figcaption></figcaption>
-					<a href=MoreDetalsPage.html target=_blank><button class=det>More
-							details</button></a>
-					<a href="EditItemPage.html" target="_blank"><button class=edit>Edit</button></a>
-					<button class=del>Delete</button>
-				</figure>
+			<div class=notes>
+				<h4 class=maxhw></h4>
+				<a class=maxhw></a>
 			</div>
-			<div class=notes id=note2>
-				<figure>
-					<h4>ITCS333 MIDTERM</h4>
-					<a class=maxhw>MID wieddddddddddddddasdfffffffffffffffffll be
-						oew feu qfuiedciuqegfnsegwgsgw <time> 20-06-2014 </time>
-					</a>
-					<figcaption></figcaption>
-					<a href=MoreDetalsPage.html target=_blank><button class=det>More
-							details</button></a>
-					<a href="EditItemPage.html" target="_blank"><button class=edit>Edit</button></a>
-					<button class=del>Delete</button>
-				</figure>
+			<div class=notes>
+				<h4 class=maxhw></h4>
+				<a class=maxhw></a>
 			</div>
-			<div class=notes id=note3>
-				<figure>
-					<h4>ITCS333 MIDTERM</h4>
-					<a class=maxhw>MID will be on <time> 20-06-2014 </time></a>
-					<figcaption></figcaption>
-					<a href=MoreDetalsPage.html target=_blank><button class=det>More
-							details</button></a>
-					<a href="EditItemPage.html" target="_blank"><button class=edit>Edit</button></a>
-					<button class=del>Delete</button>
-				</figure>
+			<div class=notes>
+				<h4 class=maxhw></h4>
+				<a class=maxhw></a>
 			</div>
 		</div>
 		<div id="page">
@@ -91,13 +61,13 @@
 
 		<label>Add a Comment:-</label>
 		<div>
-			<textarea rows="4" cols="40"></textarea>
+			<textarea rows="4" cols="40" id=comment></textarea>
 		</div>
 		<button type="submit" id=publish style="font-family: cursive">Publish</button>
 		<div>
 			<p>Comments:</p>
 			<hr>
-			<div id=comments>
+			<div id=commentSection>
 				<p>Anon:</p>
 				<p>jkk</p>
 				<hr>
@@ -114,6 +84,11 @@
 			<small>UOB, <time>2025</time></small>
 		</p>
 	</footer>
+
+	<script
+		src="Main.js">
+		
+	</script>
 
 </body>
 </html>
