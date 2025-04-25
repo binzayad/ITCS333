@@ -2,44 +2,35 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>MoreDetailsPage</title>
-<link rel="stylesheet" href=style3.css>
+<title>More Details</title>
+<link rel="stylesheet" href="style3.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 	<nav>
 		<a style="font-size: 30px">More Details</a>
-		<button>Delete</button>
-		<a href=EditItemPage.html target=_blank><button>Edit</button></a>
+		<button id="deleteBtn">Delete</button>
+		<a href="EditItemPage.html?id=<%= noteId %>" target="_blank"><button>Edit</button></a>
 	</nav>
 
-	<main class=j>
+	<main class="j">
 		<div>
 			<p>Note Title:</p>
-			<label>
-				<time></time>
-			</label>
+			<label id="noteTitle"></label>
 			<hr>
 			<p>Course Name:</p>
-			<label>
-				<time></time>
-			</label>
+			<label id="courseName"></label>
 			<hr>
 			<p>Course Code:</p>
-			<label>
-				<time></time>
-			</label>
+			<label id="courseCode"></label>
 			<hr>
 			<p>Date:</p>
-			<label>
-				<time></time>
-			</label>
+			<label id="noteDate"></label>
 			<hr>
 			<p>Description:</p>
-			<label></label>
+			<label id="noteDescription"></label>
 		</div>
-
 	</main>
-<script src="moreDetail.js"></script>
+	<script src="moreDetail.js"></script>
 </body>
 </html>

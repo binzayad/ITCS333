@@ -101,7 +101,6 @@ nav button {
 	background-image: linear-gradient(45deg, #f0f0f0 0%, transparent 45%);
 	background-position: 0 0;
 	background-repeat: repeat;
-	
 }
 
 #navigate:active {
@@ -125,20 +124,32 @@ nav button {
 	text-align: center;
 }
 
+#page a {
+	cursor: pointer;
+	margin: 0 5px;
+	padding: 5px 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	text-decoration: none;
+	color: black;
+}
+
+#page a.active {
+	background-color: #007bff;
+	color: white;
+}
+
+#page a.disabled {
+	pointer-events: none;
+	opacity: 0.5;
+}
+
 .page, #lastPage, #firstPage {
 	border-radius: 5px;
 	text-align: center;
 	padding: 9px 15px;
 	display: inline-table;
 	font-weight: 900;
-}
-
-#currentPage {
-	background-color: #4e45ba;
-}
-
-#currentPage:hover {
-	background-color: rgb(165, 150, 233);
 }
 
 #commentSection {
