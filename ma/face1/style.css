@@ -10,6 +10,7 @@ nav {
 button {
 	border: none;
 	border-radius: 5px;
+	font-family: cursive;
 }
 
 textarea {
@@ -27,7 +28,9 @@ input {
 nav button {
 	float: right;
 }
-
+.ac{
+	margin-left: 15px
+}
 #log {
 	padding: 10px 32px;
 	background-color: rgb(36, 219, 141);
@@ -51,17 +54,18 @@ nav button {
 	background-color: silver;
 }
 
-#searchbtn, .sort, #publish {
+#searchbtn, .sort, .reset, #publish {
 	height: 40px;
 	width: 70px;
 	background-color: silver;
 }
 
-#searchbtn:hover, .sort:hover, #publish:hover, #navigate:hover {
+#searchbtn:hover, .sort:hover, .reset:hover, #publish:hover, #navigate:hover
+	{
 	background-color: grey;
 }
 
-.sort {
+.sort, .reset {
 	margin-left: 5px;
 	margin-top: 10px;
 }
@@ -70,11 +74,11 @@ nav button {
 	margin: 10px;
 }
 
-#publish, #searchbtn, .sort {
+#publish, #searchbtn, .sort, .reset {
 	font-size: 16px;
 }
 
-#publish:active, #searchbtn:active, .sort:active {
+#publish:active, #searchbtn:active, .sort:active, .reset:active {
 	background-color: aqua;
 }
 
@@ -111,7 +115,6 @@ nav button {
 .maxhw {
 	display: block;
 	overflow: hidden;
-	width: 100%;
 	text-overflow: ellipsis;
 	white-space: nowrap;
 }
@@ -169,6 +172,10 @@ nav button {
 	word-wrap: break-word;
 }
 
+.det {
+	background-color: white;
+}
+
 .del {
 	background-color: red;
 }
@@ -178,7 +185,7 @@ nav button {
 }
 
 .det, .del, .edit {
-	padding: 5px;
+	padding: 10px;
 	margin-top: 5px;
 }
 

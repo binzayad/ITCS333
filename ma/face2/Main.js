@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
 	document.querySelectorAll('.sort')[1].addEventListener('click', () => sortNotes('desc'));
 	document.getElementById('publish').addEventListener('click', addComment);
 	document.getElementById('navigate').addEventListener('click', navigate);
+	document.getElementsByClassName("reset")[0].
+		addEventListener("click", reset);
 
 	// Pagination event listeners
 	document.getElementById('firstPage').addEventListener('click', () => changePage('first'));
@@ -263,4 +265,18 @@ function navigate() {
 		top: 0,
 		behavior: 'smooth'
 	});
+}
+
+function reset() {
+    // Reset to the original notes
+    allNotes = [...originalNotes];
+    totalNotes = allNotes.length;
+    currentPage = 1;  // Reset to first page
+    
+    // Clear the search input
+    document.getElementById("search").value = "";
+    
+    // Update the display
+    updatePaginationControls();
+    displayNotes(currentPage);
 }

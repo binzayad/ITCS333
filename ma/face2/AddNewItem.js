@@ -2,8 +2,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Get form elements
     const titleInput = document.getElementById('ct');
-    const courseNameInput = document.getElementById('cn');
-    const courseCodeInput = document.getElementById('cc');
     const dateInput = document.getElementById('date');
     const importantCheckbox = document.getElementById('combo');
     const descriptionTextarea = document.querySelector('textarea');
@@ -14,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault();
         
         // Validate required fields
-        if (!titleInput.value || !courseNameInput.value || !courseCodeInput.value || !descriptionTextarea.value) {
+        if (!titleInput.value || !descriptionTextarea.value) {
             alert('Please fill in all required fields!');
             return;
         }
@@ -22,10 +20,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // Create new note object
         const newNote = {
             id: Date.now(), // Generate unique ID
-            title: `${courseCodeInput.value}: ${titleInput.value}`,
+            title: `${titleInput.value}`,
             body: descriptionTextarea.value + (dateInput.value ? ` (Date: ${dateInput.value})` : ''),
-            courseName: courseNameInput.value,
-            courseCode: courseCodeInput.value,
             date: dateInput.value,
             isImportant: importantCheckbox.checked,
             timestamp: new Date().toISOString()
