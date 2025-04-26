@@ -3,66 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
     <title>Campus News</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <header>
     <h1>Campus News</h1>
-    <nav>
-        <a href="#add-news">Add News</a>
-    </nav>
 </header>
 
 <main>
     <section>
-        <input type="text" placeholder="Search..." />
-        <select>
-            <option>Sort by Date</option>
-            <option>Sort by Title</option>
+        <h2>Search and Sort</h2>
+        <input type="text" id="search-input" placeholder="Search articles by title..." />
+        <select id="sort-select">
+            <option value="default">Sort by</option>
+            <option value="title">Sort by Title</option>
         </select>
     </section>
-    <article>
-        <h2 class ="news-title">News Title 1</h2>
-        <p>Brief description of the news article...</p>
-        <a href="#details1" style="color: #efe163;">Read more</a>
-    </article>
-    
-    <nav>
-        <button>Previous</button>
-        <button>Next</button>
-    </nav>
+
+    <section id="news-container">
+        <h2>News Articles</h2>
+        
+    </section>
+
+    <section id="add-news">
+        <h2>Add New News Article</h2>
+        <form id="news-form">
+            <input type="text" id="title" placeholder="Enter article title" required />
+            <textarea id="content" placeholder="Enter article content" required></textarea>
+            <button type="submit">Submit Article</button>
+        </form>
+    </section>
+
+    <section id="details" style="display: none;">
+        <h2>Article Details</h2>
+        <h3 id="detail-title"></h3>
+        <p id="detail-content"></p>
+        <button id="edit-button">Edit Article</button>
+        <button id="delete-button">Delete Article</button>
+
+        <h3>Comments</h3>
+        <div id="comments-container"></div>
+        <textarea id="comment-input" placeholder="Add a comment..." aria-label="Comment input"></textarea>
+        <button id="submit-comment">Submit Comment</button>
+    </section>
 </main>
 
-<section id="add-news">
-    <h2>Add New News Article</h2>
-    <form>
-        <label for="title">Title <span>*</span></label>
-        <input type="text" id="title" required placeholder="Enter title" />
-        
-        <label for="content">Content <span>*</span></label>
-        <textarea id="content" required placeholder="Enter content"></textarea>
-        
-        <button type="submit">Submit</button>
-        <button type="button">Cancel</button>
-    </form>
-</section>
-
-<section id="details">
-    <h2>News Title</h2>
-    <p>Full content of the news article...</p>
-    <button>Edit</button>
-    <button>Delete</button>
-    
-    <h3>Comments</h3>
-    <div>
-        <p>User Comment 1</p>
-        
-    </div>
-    <textarea placeholder="Add a comment..."></textarea>
-    <button>Submit Comment</button>
-</section>
-
+<script src="script.js"></script>
 </body>
 </html>
