@@ -2,41 +2,89 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Project Pages Links</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Study Groups</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-  <h1>Project Pages Links</h1>
-
-  <h2>Campus-News</h2>
-  <ul>
-    <li><a href="Campus-News/index.html">Campus News - Home</a></li>
-  </ul>
-
-  <h2>CourseNotes</h2>
-  <ul>
-    <li><a href="CourseNotes/AddNewItemPage.html">Add New Item</a></li>
-    <li><a href="CourseNotes/EditItemPage.html">Edit Item</a></li>
-    <li><a href="CourseNotes/Main.html">Main Page</a></li>
-    <li><a href="CourseNotes/MoreDetailsPage.html">More Details</a></li>
-  </ul>
-
-  <h2>Marketplace</h2>
-  <ul>
-    <li><a href="Marketplace/Marketplace.html">Marketplace</a></li>
-  </ul>
-
-  <h2>My-Module</h2>
-  <ul>
-    <li><a href="My-Module/index.html">My Module - Home</a></li>
-  </ul>
-
-  <h2>phase1-course-review</h2>
-  <ul>
-    <li><a href="phase1-course-review/detail.html">Course Detail</a></li>
-    <li><a href="phase1-course-review/form.html">Review Form</a></li>
-    <li><a href="phase1-course-review/listing.html">Courses Listing</a></li>
+  <div class="container my-4">
+    <h1 class="mb-4">Study Group Finder</h1>
     
-  </ul>
+    <div class="row mb-4 g-2">
+      <div class="col-md-8">
+        <input id="searchInput" type="text" class="form-control" placeholder="Search groups...">
+      </div>
+      <div class="col-md-3">
+        <select id="filterSelect" class="form-select">
+          <option>All Courses</option>
+          <option>Computer Science</option>
+          <option>Mathematics</option>
+        </select>
+      </div>
+      <div class="col-md-1">
+        <button id="searchButton" class="btn btn-primary w-100">Search</button>
+      </div>
+    </div>
 
+    <div class="mb-4">
+      <div class="list-group" id="groupsList">
+        <a href="detail.html?id=1" class="list-group-item list-group-item-action">
+          <h5 class="mb-1">CS101 Study Group</h5>
+          <p class="mb-1">Course: Computer Science</p>
+          <small>Time: Wednesdays 3:00 PM | Location: Library Room 205</small>
+        </a>
+      </div>
+    </div>
+    <div class="text-center">
+      <a href="create.html" class="btn btn-success">Create New Group</a>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const groups = JSON.parse(localStorage.getItem('studyGroups')) || [];
+      const container = document.getElementById('groupsList');
+      const searchInput = document.getElementById('searchInput');
+      const filterSelect = document.getElementById('filterSelect');
+      const searchButton = document.getElementById('searchButton');
+      
+      function renderGroups(filteredGroups) {
+        container.innerHTML = '';
+        filteredGroups.forEach(group => {
+          const groupLink = document.createElement('a');
+          groupLink.href = `detail.html?id=${group.id}`;
+          groupLink.classList.add('list-group-item', 'list-group-item-action');
+          groupLink.innerHTML = `
+            <h5 class="mb-1">${group.name}</h5>
+            <p class="mb-1">Course: ${group.course}</p>
+            <small>Time: ${new Date(group.time).toLocaleString()} | Location: ${group.location}</small>
+          `;
+          container.appendChild(groupLink);
+        });
+      }
+      
+      function filterGroups() {
+        const searchTerm = searchInput.value.toLowerCase();
+        const selectedCourse = filterSelect.value;
+        
+        const filtered = groups.filter(group => {
+          const matchesSearch = group.name.toLowerCase().includes(searchTerm) ||
+                                group.course.toLowerCase().includes(searchTerm) ||
+                                group.location.toLowerCase().includes(searchTerm);
+          const matchesCourse = selectedCourse === "All Courses" || group.course === selectedCourse;
+          return matchesSearch && matchesCourse;
+        });
+        
+        renderGroups(filtered);
+      }
+      
+      renderGroups(groups);
+      
+      searchInput.addEventListener('input', filterGroups);
+      filterSelect.addEventListener('change', filterGroups);
+      searchButton.addEventListener('click', filterGroups);
+    });
+  </script>
 </body>
 </html>
