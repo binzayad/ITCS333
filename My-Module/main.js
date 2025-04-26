@@ -1,7 +1,7 @@
 // Sample data
 const items = [
   { name: "Event A", location: "S-18", date: "2025-04-10", price: 10 },
-  { name: "Event B", location: "S-6", date: "2025-04-23", price: 20 },
+  { name: "Event B", location: "S-6", date: "2025-03-30", price: 20 },
   { name: "Event C", location: "S-40", date: "2025-04-08", price: 5 },
   // ...add more items as needed
 ];
@@ -88,6 +88,93 @@ function update() {
   renderPagination(filtered);
 }
 
+// Calendar month navigation
+const currentDateElem = document.querySelector(".current-date");
+const prevIcon = document.querySelector(".icons span:first-child");
+const nextIcon = document.querySelector(".icons span:last-child");
+const calendarDays = document.querySelector(".calendar ul.days");
+
+let date = new Date();
+let currMonth = date.getMonth();
+let currYear = date.getFullYear();
+
+function renderCalendar() {
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
+  let firstDayOfMonth = new Date(currYear, currMonth, 1).getDay();
+  let lastDateOfMonth = new Date(currYear, currMonth + 1, 0).getDate();
+  let lastDayOfMonth = new Date(currYear, currMonth, lastDateOfMonth).getDay();
+  let lastDateOfPrevMonth = new Date(currYear, currMonth, 0).getDate();
+
+  // Collect all event days for the current month/year
+  const eventDays = items
+    .map(item => {
+      const d = new Date(item.date);
+      if (d.getFullYear() === currYear && d.getMonth() === currMonth) {
+        return d.getDate();
+      }
+      return null;
+    })
+    .filter(day => day !== null);
+
+  let days = "";
+
+  // Previous month's days
+  for (let i = firstDayOfMonth; i > 0; i--) {
+    days += `<li class="inactive">${lastDateOfPrevMonth - i + 1}</li>`;
+  }
+  // Current month's days
+  for (let i = 1; i <= lastDateOfMonth; i++) {
+    let today = new Date();
+    let isToday =
+      i === today.getDate() &&
+      currMonth === today.getMonth() &&
+      currYear === today.getFullYear()
+        ? "active"
+        : "";
+    let hasEvent = eventDays.includes(i) ? "event-day" : "";
+    days += `<li class="${isToday} ${hasEvent}">${i}</li>`;
+  }
+  // Next month's days
+  for (let i = lastDayOfMonth + 1; i <= 6; i++) {
+    days += `<li class="inactive">${i - lastDayOfMonth}</li>`;
+  }
+
+  currentDateElem.textContent = `${months[currMonth]} ${currYear}`;
+  calendarDays.innerHTML = days;
+}
+
+prevIcon.onclick = () => {
+  currMonth--;
+  if (currMonth < 0) {
+    currMonth = 11;
+    currYear--;
+  }
+  renderCalendar();
+};
+
+nextIcon.onclick = () => {
+  currMonth++;
+  if (currMonth > 11) {
+    currMonth = 0;
+    currYear++;
+  }
+  renderCalendar();
+};
+
 document.getElementById("searchBtn").onclick = () => {
   currentPage = 1;
   update();
@@ -97,4 +184,7 @@ document.getElementById("sort").onchange = () => {
   update();
 };
 
-window.onload = update;
+window.onload = function () {
+  update();
+  renderCalendar();
+};

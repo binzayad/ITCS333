@@ -135,20 +135,16 @@ body {
 }
 
 #item-list div {
-    background: #f9f9f9;
-    border-radius: 12px;
-    padding: 18px 28px;
-    margin: 0.2rem;
-    width: 87%;
-    color: #2c3e50;
-    font-size: 1.1rem;
-    transition: 
-        box-shadow 0.3s,
-        background 0.3s,
-        color 0.3s,
-        transform 0.3s,
-        opacity 0.3s;
-    opacity: 1;
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 18px 28px;
+  margin: 0.2rem;
+  width: 87%;
+  color: #2c3e50;
+  font-size: 1.1rem;
+  transition: box-shadow 0.3s, background 0.3s, color 0.3s, transform 0.3s,
+    opacity 0.3s;
+  opacity: 1;
 }
 
 #item-list div:hover {
@@ -228,12 +224,13 @@ header .current-date {
   cursor: pointer;
   position: relative;
   margin-top: 30px;
+  transition: background 0.2s, color 0.2s;
 }
 .days li.inactive {
   color: #aaa;
 }
 .days li.active {
-  color: #fff;
+  color: #333;
 }
 .calendar .days li::before {
   position: absolute;
@@ -250,5 +247,29 @@ header .current-date {
   background: #9b59b6;
 }
 .days li:not(.active):hover::before {
-  background: #f2f2f2;
+  background: #ebebeb;
+  color: #ff3838;
+}
+
+.calendar .days li:hover {
+  color: #333;
+}
+
+/* Highlight events */
+.calendar .days li.event-day::before {
+  background: #ffe082 !important; 
+}
+
+.calendar .days li.event-day {
+  font-weight: bold;
+  color: #333;
+}
+
+.calendar .days li.event-day:hover {
+  color: #ffffff;
+}
+
+.calendar .days li.active.event-day::before {
+  background: #9b59b6 !important;
+  border: 2px solid #f39c12;
 }
