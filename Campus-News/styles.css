@@ -1,4 +1,3 @@
-
 body, h1, h2, h3, p {
     margin: 0;
     padding: 0;
@@ -17,17 +16,6 @@ header {
     color: #fff;
     padding: 15px 20px;
     text-align: center;
-}
-
-nav a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 15px;
-    font-weight: bold;
-}
-
-nav a:hover {
-    text-decoration: underline;
 }
 
 main {
@@ -67,6 +55,7 @@ button {
     cursor: pointer;
     transition: background 0.3s;
     font-size: 1.2em;
+    margin-top: 10px; 
 }
 
 button:hover {
@@ -79,17 +68,8 @@ article {
     padding-left: 10px;
 }
 
-.news-title {
-    border: 2px solid black;
-    background-color: #FF0000;
-    padding: 5px 10px;
-    font-weight: bold;
-    color: white;
-    display: inline-block;
-}
-
 h2 {
-    font-size: 1.2em;
+    font-size: 1.5em; 
     margin-bottom: 10px;
     color: #333;
 }
@@ -97,6 +77,12 @@ h2 {
 h3 {
     margin: 15px 0 5px;
     color: #E94E77; 
+}
+
+#comments-container div {
+    margin: 5px 0;
+    border-bottom: 1px solid #ddd;
+    padding: 5px 0;
 }
 
 @media (min-width: 768px) {
