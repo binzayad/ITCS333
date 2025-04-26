@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Course Note Module</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<nav id=nav>
+		<a style="font-size: 30px">Course Notes</a>
+		<button id="log">Login</button>
+		<button id="sgn">Sign-up</button>
+	</nav>
+	<hr>
+	<button id=navigate>↑</button>
+	<main>
+		<h1>Notes</h1>
+		<input id="search" type="search">
+		<button type="submit" id=searchbtn>Search</button>
+		<button class=sort>A-Z</button>
+		<button class=sort>Z-A</button>
+		<button class=reset>Reset</button>
+		<hr>
+		<a href=AddNewItemPage.html target="_blank" class=link><button>Add
+				new Item</button></a>
+		<div id=notes></div>
+		<div id="page">
+			<a id=firstPage> |< </a> <a class="page" id=prevPage> < </a> <a
+				class="page" id=currentPage> 1 </a> <a class="page" id=nextPage>
+				> </a> <a id=lastPage> >| </a>
+		</div>
+
+		<hr>
+
+		<label>Add a Comment:-</label>
+		<div>
+			<textarea rows="4" cols="40" id=comment></textarea>
+		</div>
+		<button type="submit" id=publish style="font-family: cursive">Publish</button>
+		<div>
+			<p>Comments:</p>
+			<hr>
+			<div id=commentSection>
+				<p>Anon:</p>
+				<p>jkk</p>
+				<hr>
+				<p>Anon:</p>
+				<p>jksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkjjksfdkj</p>
+			</div>
+		</div>
+	</main>
+
+	<hr>
+
+	<footer>
+		<p>
+			<small>UOB, <time>2025</time></small>
+		</p>
+	</footer>
+
+	<script src="Main.js">
+		
+	</script>
+
+</body>
+</html>

@@ -1,3 +1,7 @@
+title {
+	background-color: red;
+}
+
 body {
 	background-color: rgb(255, 255, 255);
 	font-family: cursive;
@@ -7,9 +11,14 @@ nav {
 	margin: 20px;
 }
 
+nav a {
+	color: red;
+}
+
 button {
 	border: none;
 	border-radius: 5px;
+	font-family: cursive;
 }
 
 textarea {
@@ -18,7 +27,7 @@ textarea {
 }
 
 input {
-	width: 300px;
+	width: 500px;
 	height: 40px;
 	border-radius: 8px;
 	font-size: 20px;
@@ -26,6 +35,12 @@ input {
 
 nav button {
 	float: right;
+}
+
+.link button {
+	margin-left: 15px;
+	padding: 10px;
+	background-color: silver;
 }
 
 #log {
@@ -51,17 +66,18 @@ nav button {
 	background-color: silver;
 }
 
-#searchbtn, .sort, #publish {
+#searchbtn, .sort, .reset, #publish {
 	height: 40px;
 	width: 70px;
 	background-color: silver;
 }
 
-#searchbtn:hover, .sort:hover, #publish:hover, #navigate:hover {
+#searchbtn:hover, .link button:hover, .sort:hover, .reset:hover,
+	#publish:hover, #navigate:hover {
 	background-color: grey;
 }
 
-.sort {
+.sort, .reset {
 	margin-left: 5px;
 	margin-top: 10px;
 }
@@ -70,11 +86,12 @@ nav button {
 	margin: 10px;
 }
 
-#publish, #searchbtn, .sort {
+#publish, #searchbtn, .sort, .reset {
 	font-size: 16px;
 }
 
-#publish:active, #searchbtn:active, .sort:active {
+#publish:active, .link button:active, #searchbtn:active, .sort:active,
+	.reset:active {
 	background-color: aqua;
 }
 
@@ -92,7 +109,7 @@ nav button {
 }
 
 .notes {
-	display: inline-block;
+	display: block;
 	border-radius: 10px;
 	background-color: #d5b8db;
 	margin: 15px;
@@ -101,11 +118,6 @@ nav button {
 	background-image: linear-gradient(45deg, #f0f0f0 0%, transparent 45%);
 	background-position: 0 0;
 	background-repeat: repeat;
-	height: 150px;
-	width: 299px;
-	max-height: 150px;
-	max-width: 300px;
-	overflow: hidden;
 }
 
 #navigate:active {
@@ -116,7 +128,6 @@ nav button {
 .maxhw {
 	display: block;
 	overflow: hidden;
-	width: 100%;
 	text-overflow: ellipsis;
 	white-space: nowrap;
 }
@@ -129,6 +140,26 @@ nav button {
 	text-align: center;
 }
 
+#page a {
+	cursor: pointer;
+	margin: 0 5px;
+	padding: 5px 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	text-decoration: none;
+	color: black;
+}
+
+#page a.active {
+	background-color: #007bff;
+	color: white;
+}
+
+#page a.disabled {
+	pointer-events: none;
+	opacity: 0.5;
+}
+
 .page, #lastPage, #firstPage {
 	border-radius: 5px;
 	text-align: center;
@@ -137,15 +168,7 @@ nav button {
 	font-weight: 900;
 }
 
-#currentPage {
-	background-color: #4e45ba;
-}
-
-#currentPage:hover {
-	background-color: rgb(165, 150, 233);
-}
-
-#comments {
+#commentSection {
 	border-radius: 10px;
 	border-color: silver;
 	background-color: silver;
@@ -162,6 +185,10 @@ nav button {
 	word-wrap: break-word;
 }
 
+.det {
+	background-color: white;
+}
+
 .del {
 	background-color: red;
 }
@@ -171,7 +198,7 @@ nav button {
 }
 
 .det, .del, .edit {
-	padding: 5px;
+	padding: 10px;
 	margin-top: 5px;
 }
 
