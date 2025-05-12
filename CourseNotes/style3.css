@@ -1,0 +1,54 @@
+body {
+	background-color: white;
+	font-family: cursive;
+	margin: 20px;
+}
+
+h1 {
+	text-align: center;
+}
+
+.j {
+	display: flex;
+	justify-content: center;
+}
+
+main div {
+	width: 100%;
+	max-width: 600px;
+	margin: auto;
+	padding: 20px;
+	border-radius: 10px;
+	background-color: #f9f9f9;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+p {
+	margin-bottom: 5px;
+	font-weight: bold;
+}
+
+label {
+	display: block;
+	margin-bottom: 15px;
+	font-size: 18px;
+	color: #333;
+}
+
+hr {
+	margin: 15px 0;
+}
+
+button {
+	background-color: silver;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+	font-family: cursive;
+	font-size: 16px;
+}
+
+button:hover {
+	background-color: grey;
+}

@@ -1,0 +1,48 @@
+body {
+	background-color: white;
+	font-family: cursive;
+	margin: 20px;
+}
+h1 {
+	text-align: center;
+}
+
+.j {
+	display: flex;
+	justify-content: center;
+}
+form {
+	width: 100%;
+	max-width: 600px;
+	margin: auto;
+}
+figure {
+	margin-bottom: 20px;
+}
+figcaption p {
+	margin-bottom: 5px;
+	font-weight: bold;
+}
+input[type="text"],
+input[type="date"],
+textarea {
+	width: 100%;
+	padding: 10px;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	font-size: 16px;
+	font-family: cursive;
+	box-sizing: border-box;
+}
+button {
+	background-color: silver;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+	font-family: cursive;
+	font-size: 16px;
+}
+button:hover {
+	background-color: grey;
+}
