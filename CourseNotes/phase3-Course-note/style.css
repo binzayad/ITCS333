@@ -55,14 +55,12 @@ input {
 	font-size: 20px;
 }
 
-Add New Item Button
 .link button {
 	margin-left: 15px;
 	padding: 10px;
 	background-color: silver;
 }
 
-Search & Sort Buttons
 #searchbtn, .sort, .reset, #publish {
 	height: 40px;
 	width: 70px;
