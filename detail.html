@@ -1,98 +1,55 @@
+<!-- detail.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Group Details</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Course Review Details</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+<script src="course-reviews.js"></script>
 <body>
-  <div class="container my-4">
-    <h2>Study Group Details</h2>
-    <a href="index.html" class="btn btn-link mb-3">&larr; Back to List</a>
+  <h1 id="reviewTitle"></h1>
+<p id="reviewBody"></p>
+<script>loadReviewDetails();</script>
 
-    <div class="card mb-4">
-      <div class="card-body group-details">
-      </div>
+  <header class="bg-primary text-white p-3 mb-4">
+    <div class="container">
+      <h1 class="h3">Review Details</h1>
     </div>
+  </header>
 
-    <div class="card">
-      <div class="card-header">
-        <h4 class="mb-0">Comments</h4>
+  <main class="container mb-5">
+    <article class="border rounded p-3">
+      <h4>Introduction to Campus Hub</h4>
+      <p><strong>Instructor:</strong> Dr.Abdulla Ebrahim</p>
+      <p><strong>Rating:</strong> ★★★★☆</p>
+      <p><strong>Review:</strong> This course provided a solid foundation in web Development.</p>
+
+      <div class="d-flex gap-2 mb-3">
+        <button class="btn btn-outline-primary">Edit Review</button>
+        <button class="btn btn-outline-danger">Delete Review</button>
       </div>
-      <div class="card-body" id="commentsContainer">
+    </article>
+
+    <section class="mt-4">
+      <h5>Comments</h5>
+      <div class="mb-2 border rounded p-2">
+        <p><strong>Student123:</strong> I totally agree!</p>
       </div>
-      <div class="card-footer">
-        <form id="commentForm">
-          <div class="mb-3">
-            <textarea id="commentText" rows="3" class="form-control" placeholder="Add a comment..."></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary">Post Comment</button>
-        </form>
+      <div class="mb-2 border rounded p-2">
+        <p><strong>Ahmed:</strong> Did it have labs?</p>
       </div>
-    </div>
-  </div>
+      <textarea class="form-control mb-2" placeholder="Write a comment..." disabled></textarea>
+      <button class="btn btn-secondary" disabled>Post Comment</button>
+      <small class="text-muted">* Comments will be added later.</small>
+    </section>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const groupId = new URLSearchParams(window.location.search).get('id');
-      const groups = JSON.parse(localStorage.getItem('studyGroups')) || [];
-      const group = groups.find(g => g.id == groupId);
+    <a href="listing.html" class="btn btn-link mt-3">← Back to Reviews</a>
+  </main>
 
-      if (group) {
-        document.querySelector('.group-details').innerHTML = `
-          <h3>${group.name}</h3>
-          <p><strong>Course:</strong> ${group.course}</p>
-          <p><strong>Time:</strong> ${new Date(group.time).toLocaleString()}</p>
-          <p><strong>Location:</strong> ${group.location}</p>
-          <p><strong>Description:</strong> ${group.description}</p>
-        `;
-      } else {
-        document.querySelector('.group-details').innerHTML = '<p class="text-danger">Group not found.</p>';
-      }
-
-      function renderComments() {
-        const commentsContainer = document.getElementById('commentsContainer');
-        commentsContainer.innerHTML = '';
-        if (!group.comments || group.comments.length === 0) {
-          commentsContainer.innerHTML = '<p class="text-muted">No comments yet.</p>';
-          return;
-        }
-        group.comments.forEach(comment => {
-          const commentDiv = document.createElement('div');
-          commentDiv.classList.add('mb-3', 'p-2', 'border', 'rounded');
-          commentDiv.innerHTML = `
-            <p class="mb-1"><strong>You:</strong> ${comment}</p>
-            <small class="text-muted">Posted just now</small>
-          `;
-          commentsContainer.appendChild(commentDiv);
-        });
-      }
-
-      if (group) {
-        if (!group.comments) {
-          group.comments = [];
-        }
-        renderComments();
-      }
-      document.getElementById('commentForm').addEventListener('submit', (e) => {
-        e.preventDefault();
-        const commentText = document.getElementById('commentText').value.trim();
-        if (commentText !== '') {
-          group.comments.push(commentText);
-          const updatedGroups = groups.map(g => {
-            if (g.id == group.id) {
-              return group;
-            }
-            return g;
-          });
-          localStorage.setItem('studyGroups', JSON.stringify(updatedGroups));
-          renderComments();
-          document.getElementById('commentForm').reset();
-        }
-      });
-    });
-  </script>
+  <footer class="bg-light text-center py-3">
+    <small>© 2025 Campus Hub</small>
+  </footer>
 </body>
 </html>
