@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
@@ -19,6 +19,8 @@
                   </li>
                   <li class="nav-item">
                     <a class="nav-link active"  href="/Marketplace/Marketplace.html">Students Marketplace</a>
+                    <!-- Login Button -->
+
                   </li>
             
                 </ul>
@@ -31,89 +33,98 @@
     </head>
     <body class="container-fuid">
         
-        <h2>
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-              </form>
-            <a>category: </a><select name="category">
-            <option selected>All</option>
-            <option >Electronics</option>
-            <option >Books</option>
-        </select>
-           <a>sort by: </a><select name="sort">
-            <option   id="sortByDate">Date</option>
-            <option  selected id="sortByPrice">Price</option>
-            <option  id="sortByName">Name</option>
-        </select>
-        <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#SellBtn">sell</a>
-        
-        <div class="modal fade" id="SellBtn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="exampleModalLabel">Sell An Item</h1>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <a class="text-decoration-none  h4 " >Item Name:</a>
-                    <input class="form-control me-2"type="text">
-                    <a class="text-decoration-none  h4 " >Item Description:</a>
-                    <textarea class="form-control me-2"type="text"></textarea>
-                    
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                  <button type="button" class="btn btn-primary">Sell</button>
-                </div>
-              </div>
-            </div>
-          </div>
+        <h4 class="m-3">
+          <div class="d-flex align-items-center flex-wrap m-3">
+            <label for="category" class="form-label me-2 mb-0">Category:</label>
+            <select name="category" id="category" class="form-select me-3 w-auto">
+                <option selected>All</option>
+                <option>Electronics</option>
+                <option>Books</option>
+            </select>
+            <label for="sort" class="form-label me-2 mb-0">Sort by:</label>
+            <select name="sort" id="sort" class="form-select w-auto">
+                <option id="sortByDate">Date</option>
+                <option selected id="sortByPrice">Price</option>
+                <option id="sortByName">Name</option>
+            </select>
+        </div>
+       <!-- Sell Button -->
+<a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#sellModal">Sell</a>
 
-    </h2>
+<!-- Modal -->
+<div class="modal fade" id="sellModal" tabindex="-1" aria-labelledby="sellModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        
+        <h5 class="modal-title" id="sellModalLabel">Sell an Item</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div id="addItem-message" style="font-size: 0.875rem; padding: 5px; max-width: 100%; margin: 5px 0;"></div>
+        <div id="uploadMessage" style="font-size: 0.875rem; padding: 5px; max-width: 100%; margin: 5px 0;"></div>
+        <form id="sellForm" enctype="multipart/form-data">
+          <div class="mb-3">
+            <label for="itemName" class="form-label">Item Name</label>
+            <input type="text" class="form-control" id="itemName" placeholder="Enter item name" required>
+          </div>
+          <div class="mb-3">
+            <label for="itemLocation" class="form-label">Location</label>
+            <input type="text" class="form-control" id="itemLocation" rows="3" placeholder="Enter a you location" required></textarea>
+          </div>
+          <div class="mb-3">
+          <div class="mb-3">
+            <label for="itemCategory" class="form-label">Category</label>
+            <select class="form-select" id="itemCategory" required>
+              <option selected disabled>Select a category</option>
+              <option>Electronics</option>
+              <option>Books</option>
+              <option>Clothing</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="itemPrice" class="form-label">Price</label>
+            <input type="number" class="form-control" id="itemPrice" placeholder="Enter price in USD" required>
+          </div>
+          <div class="mb-3">
+            <label for="itemDescription" class="form-label">Description</label>
+            <textarea class="form-control" id="itemDescription" rows="3" placeholder="Enter a brief description" required></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="itemImage" class="form-label">Upload Image</label>
+            <input type="file" class="form-control" id="itemImage" accept="image/*">
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+        
+       
+    </h4>
 
 
     
-    <div class="row align-items-center row-cols-auto-lg d-flex align-items-stretch" id="items">
+    <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 align-items-center row-cols-auto-lg g-4 d-flex align-items-stretch m-4" id="items">
 
         
-        <div class="col ">
-            <div class="card "> 
-              <img src="img/temp_mouse.jpg" class="card-img-top" alt="...">
-              <div class="card-body ">
-                <h5 class="card-title text-center">Mouse</h5>
-                <p class="card-text text start">Hello zombie are eating no but we are eating what is not.</p>
-        
-                <div class="card-footer text-center">
-                    <small class="text-decoration-none text-success h3 text-right">300$</small>
-                    <a href="seller/seller.html" class="btn btn-primary text-end ">more Details</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col ">
-            <div class="card">
-              <img src="img/temp_mouse.jpg" class="card-img-top" alt="...">
-              <div class="card-body ">
-                <h5 class="card-title">Mouse</h5>
-                <p class="card-text">Hello are we I therefor.</p>
-                  <div class="card-footer text-center">
-                    <small class="text-decoration-none text-success h3 text-right">300$</small>
-                    <a href="seller/seller.html" class="btn btn-primary text-end ">more Details</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
+      <div id="loading-wrapper" class="d-flex justify-content-center align-items-center vh-100">
+    <div id="loading" class="text-center">
+        <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+</div>
           
         
       </div>
 
       <nav>
-        <ul class="pagination justify-content-center">
-          <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-          <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <ul class="pagination justify-content-center m-3" id="pagination">
+          <li class="page-item "><a class="page-link" href="#">Previous</a></li>
+          <li class="page-item active"><a class="page-link" href="#">1</a></li>
           <li class="page-item"><a class="page-link" href="#">2</a></li>
           <li class="page-item"><a class="page-link" href="#">3</a></li>
           <li class="page-item"><a class="page-link" href="#">Next</a></li>
@@ -121,57 +132,9 @@
       </nav>
         
     </body>
-    <script>
-let doc=document;
-async function sortedJason(){
-    let jsondata;    
-    const response = await fetch("https://6807d811942707d722dc9aea.mockapi.io/nn/items");
-    jsondata = await response.json();
-    console.log("ss");
-       return jsondata;
-    
-}
-sortedJason().then((data) => {
-  if(doc.getElementById("sortByDate").selected==true){   data.sort(byDate)}
-       else if(doc.getElementById("sortByPrice").selected==true){ console.log("ss"); data.sort(byPrice)}
-       else if(doc.getElementById("sortByName").selected==true){   data.sort(byAlphabet)}
-       else{data.sort(byAlphabet)}
-    let doc1=doc.getElementById("items");
-    let output="";
-    data.forEach( c => {
-      output+=`<div class="col "> <div class="card h-100 d-flex flex-column"> 
-        <img src="${c.img}"class="card-img-top img-responsive" alt="...">
-        <div class="card-body h-100 ">
-          <h5 class="card-title text-center ">${c.name}</h5>
-          <p class="card-text text start">${c.briefDescription}</p>
-        </div>
-        <div class="card-footer text-center mt-auto">
-              <small class="text-decoration-none text-success h3 text-right">${c.price}$</small>
-              <a href="seller/seller.html?id=${c.id}" class="btn btn-primary text-end ">more Details</a>
-          </div>
-      </div>
-    </div>`; });
-    doc1.innerHTML=output;
-});
-function byDate(a,b){
-    if(Date.parse(a.data)< Date.parse(b.data)){
-      return -1;
-}else if(Date.parse(a.data) > Date.parse(a.data)){
-      return 1;
-    }else{
-      return byAlphabet(a,b);
-    }
-}
+    <script src="sort.js"></script>  
+    <script src="apiCom.js"></script>
 
-function byAlphabet(a,b){
-    return a.name.localeCompare(b.name);
-}
-function byPrice(a,b){
-  console.log("ss");
-    return a.price - b.price;
-    
-    
-}
-</script>
+
     
 </html>
