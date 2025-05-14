@@ -3,25 +3,80 @@ async function sortedJason(){
     let jsondata;    
     const response = await fetch("https://6807d811942707d722dc9aea.mockapi.io/nn/items");
     jsondata = await response.json();
-    console.log("ss");
-       return jsondata;
+    
+   return jsondata;
     
 }
+function showMessage(element, message, type) {
+  element.innerHTML = `<div class="alert alert-${type} alert-dismissible fade show" role="alert">
+      ${message}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>`;
+}
+function populateItems(){
+  const loading = doc.getElementById("loading-wrapper");
+  const itemsContainer = doc.getElementById("items");
+
+ // Show the loading indicator
+ loading.style.display = "flex";
+ itemsContainer.style.display = "none";
+
 sortedJason().then((data) => {
   if(doc.getElementById("sortByDate").selected==true){   data.sort(byDate)}
-       else if(doc.getElementById("sortByPrice").selected==true){ console.log("ss"); data.sort(byPrice)}
-       else if(doc.getElementById("sortByName").selected==true){  data.sort(byAlphabet)}
+       else if(doc.getElementById("sortByPrice").selected==true){  data.sort(byPrice)}
+       else if(doc.getElementById("sortByName").selected==true){   data.sort(byAlphabet)}
        else{data.sort(byAlphabet)}
-    let doc1=doc.getElementById("items");
+    
+    
     let output="";
-    let maxItems=5;
-    let pageNumber=1;
-    let i=1;
-    data.forEach( c => { if(maxItems*pageNumber<=i && maxItems*(pageNumber-1)>i){
+    i=1;
+    let maxItems=15;
+    maxPage= Math.ceil(data.length/maxItems);
+    urlParameters= new URLSearchParams(window.location.search);
+
+    //validating the page number
+    pageNumber=parseInt(urlParameters.get("page"));
+    if(pageNumber==null || pageNumber==undefined || pageNumber<=0 || pageNumber>maxPage){
+    pageNumber=1;
+    }
+
+    //start crating pagination
+    pagination=doc.getElementById("pagination");
+
+    pagination.innerHTML=`<li class="page-item `+(pageNumber==1?"disabled":"")+` "><a class="page-link" href="?page=${pageNumber-1}">Previous</a></li>`;
+    
+    let initialPage=1;
+    let lastPage=maxPage;
+    if (pageNumber-4>0){
+      initialPage=pageNumber-2;
+      pagination.innerHTML=`<li class="page-item `+(pageNumber==1?"disabled":"")+` "><a class="page-link" href="?page=${pageNumber-1}">Previous</a></li>`;
+      pagination.innerHTML+=`<li class="page-item "><a class="page-link" href="?page=${1}">1</a></li>`;
+      pagination.innerHTML+=`<li class="page-item disabled "><a class="page-link" href="?page=${1}">...</a></li>`;
+    }else{
+      pagination.innerHTML=`<li class="page-item `+(pageNumber==1?"disabled":"")+` "><a class="page-link" href="?page=${pageNumber-1}">Previous</a></li>`;
+
+    }
+    if (pageNumber+3<maxPage){
+      lastPage=pageNumber+2;
+    }
+
+    for(let j=initialPage;j<=lastPage;j++){
+      pagination.innerHTML+=`<li class="page-item `+(j==pageNumber?"active":"" )+`"><a class="page-link" href="?page=${j}">${j}</a></li>`;
+    }
+    if (pageNumber+3<maxPage){
+      pagination.innerHTML+=`<li class="page-item disabled "><a class="page-link" href="?page=${1}">...</a></li>`;
+      pagination.innerHTML+=`<li class="page-item "><a class="page-link" href="?page=${maxPage}">${maxPage}</a></li>`;
+    }
+    
+    pagination.innerHTML+=`<li class="page-item `+(pageNumber==maxPage?"disabled":"")+`"><a class="page-link" href="?page=${pageNumber+1}">Next</a></li>`;
+    
+
+  //rendering the items
+    data.forEach( c => {if(((maxItems*(pageNumber-1))<i && maxItems*pageNumber)>=i ){
       i++;
       output+=`<div class="col "> <div class="card h-100 d-flex flex-column"> 
         <img src="${c.img}"class="card-img-top img-responsive" alt="...">
-        <div class="card-body h-100 ">
+        <div class="card-body ">
           <h5 class="card-title text-center ">${c.name}</h5>
           <p class="card-text text start">${c.briefDescription}</p>
         </div>
@@ -30,25 +85,64 @@ sortedJason().then((data) => {
               <a href="seller/seller.html?id=${c.id}" class="btn btn-primary text-end ">more Details</a>
           </div>
       </div>
-    </div>`; }});
-    doc1.innerHTML=output;
+    </div>`; }else{i++;}
+    });
+    // Hide the loading indicator and show the items
+    
+    itemsContainer.innerHTML = output;
+    loading.style.display = "none"; // Hide the loading wrapper
+     
+        
+    itemsContainer.style.display = "flex";
+    
 });
+}
+populateItems();
+
 function byDate(a,b){
-    if(Date.parse(a.data)< Date.parse(b.data)){
-      return -1;
-}else if(Date.parse(a.data) > Date.parse(a.data)){
-      return 1;
-    }else{
-      return byAlphabet(a,b);
-    }
+  return Date.parse(a.date)- Date.parse(b.date)
+
 }
 
 function byAlphabet(a,b){
     return a.name.localeCompare(b.name);
 }
 function byPrice(a,b){
-  console.log("ss");
+
     return a.price - b.price;
     
     
 }
+
+/*doc.getElementById("sort").addEventListener("change",function(){
+  populateItems();}
+  
+  );
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const sellForm = document.getElementById("sellForm");
+    const submitButton = sellForm.querySelector("button[type='submit']");
+  
+    // Add event listener to the submit button
+    submitButton.addEventListener("click", function (event) {
+      addItemMessage = document.getElementById("addItem-message");
+      event.preventDefault(); // Prevent form submission
+      
+  
+      // Get form fields
+      const itemName = document.getElementById("itemName").value;
+      const itemCategory = document.getElementById("itemCategory").value;
+      const itemPrice = document.getElementById("itemPrice");
+      const itemDescription = document.getElementById("itemDescription").value;
+      const itemImage = document.getElementById("itemImage").value;
+  
+      if (!itemName || !itemCategory || !itemPrice || !itemDescription || !itemImage) {
+        showMessage(addItemMessage, 'Please fill in all fields', 'danger');
+        return;
+    }
+  
+      // Validate Item Name
+      
+    });
+  });*/
+  
