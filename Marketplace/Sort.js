@@ -17,9 +17,11 @@ function populateItems(){
   const loading = doc.getElementById("loading-wrapper");
   const itemsContainer = doc.getElementById("items");
 
+
+
  // Show the loading indicator
  loading.style.display = "flex";
- itemsContainer.style.display = "none";
+ loading.style.visibility = "visible";
 
 sortedJason().then((data) => {
   if(doc.getElementById("sortByDate").selected==true){   data.sort(byDate)}
@@ -36,9 +38,10 @@ sortedJason().then((data) => {
 
     //validating the page number
     pageNumber=parseInt(urlParameters.get("page"));
-    if(pageNumber==null || pageNumber==undefined || pageNumber<=0 || pageNumber>maxPage){
-    pageNumber=1;
+    if(pageNumber==null || pageNumber==undefined || pageNumber<=0 || pageNumber>maxPage || isNaN(pageNumber)){
+      pageNumber=1;
     }
+ 
 
     //start crating pagination
     pagination=doc.getElementById("pagination");
@@ -88,16 +91,20 @@ sortedJason().then((data) => {
     </div>`; }else{i++;}
     });
     // Hide the loading indicator and show the items
-    
-    itemsContainer.innerHTML = output;
-    loading.style.display = "none"; // Hide the loading wrapper
-     
-        
     itemsContainer.style.display = "flex";
+    itemsContainer.innerHTML = output;
+    loading.style.visibility = "hidden";
+
+    
     
 });
 }
+document.addEventListener("DOMContentLoaded", function () {
 populateItems();
+doc.getElementById("sort").addEventListener("change",function(){
+  populateItems();}
+ );
+});
 
 function byDate(a,b){
   return Date.parse(a.date)- Date.parse(b.date)
@@ -114,35 +121,5 @@ function byPrice(a,b){
     
 }
 
-/*doc.getElementById("sort").addEventListener("change",function(){
-  populateItems();}
-  
-  );
 
-  document.addEventListener("DOMContentLoaded", function () {
-    const sellForm = document.getElementById("sellForm");
-    const submitButton = sellForm.querySelector("button[type='submit']");
-  
-    // Add event listener to the submit button
-    submitButton.addEventListener("click", function (event) {
-      addItemMessage = document.getElementById("addItem-message");
-      event.preventDefault(); // Prevent form submission
-      
-  
-      // Get form fields
-      const itemName = document.getElementById("itemName").value;
-      const itemCategory = document.getElementById("itemCategory").value;
-      const itemPrice = document.getElementById("itemPrice");
-      const itemDescription = document.getElementById("itemDescription").value;
-      const itemImage = document.getElementById("itemImage").value;
-  
-      if (!itemName || !itemCategory || !itemPrice || !itemDescription || !itemImage) {
-        showMessage(addItemMessage, 'Please fill in all fields', 'danger');
-        return;
-    }
-  
-      // Validate Item Name
-      
-    });
-  });*/
   

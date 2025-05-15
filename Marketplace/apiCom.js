@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Get the sell form and submit button
   const sellForm = document.getElementById("sellForm");
   const sellButton = sellForm.querySelector("button[type='submit']");
-const uploadForm = document.getElementById("uploadForm");
+const uploadMessage = document.getElementById("uploadMessage");
 
   // Add event listener to the submit button
   sellButton.addEventListener("click", function (event) {
@@ -25,7 +25,8 @@ const uploadForm = document.getElementById("uploadForm");
 
     // Validate the form fields
     if (!itemName || !itemCategory || !itemPrice || !itemDescription || !itemLocation) {
-        showMessage(addItemMessage, 'Please fill in all fields', 'danger');
+        showMessage(uploadMessage, 'Please fill in all fields', 'danger');
+        console.log(uploadMessage);
         return;
     }
 
@@ -68,7 +69,8 @@ const uploadForm = document.getElementById("uploadForm");
         } else {
             showMessage(uploadMessage, data.message, 'danger');
         }
-        alert("Form submitted successfully!");
+    
+    
     })
     .catch(error => {
         console.log(JSON.stringify({ 
